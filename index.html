@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8"/>
+    <title>Frame</title>
+    <link rel="stylesheet" type="text/css" href="https://cdn.rawgit.com/eligrey/FileSaver.js/702cd2e820b680f88a0f299e33085c196806fc52/demo/demo.css"/>
+    <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js'></script>
+ <link rel="stylesheet" href="zpixel.css">
+    <script>
+      
+        // Function to download data to a file
+        function download(data, filename, type) {
+            var file = new Blob([data], {type: type});
+            if (window.navigator.msSaveOrOpenBlob) // IE10+
+                window.navigator.msSaveOrOpenBlob(file, filename);
+            else { // Others
+                var a = document.createElement("a"),
+                        url = URL.createObjectURL(file);
+                a.href = url;
+                a.download = filename;
+                document.body.appendChild(a);
+                a.click();
+                setTimeout(function() {
+                    document.body.removeChild(a);
+                    window.URL.revokeObjectURL(url);  
+                }, 0); 
+            }
+        }
+
+                
+        </script>
+</head>
+<body>
+    <div id="addColuna">
+        <h5>Adiciona uma nova coluna</h5>
+        <input type="text" id="nomeColuna" placeholder="ID da coluna">
+        <input type="submit" id="coluna" value="Adicionar Coluna">
+    </div>
+    
+    <div id="html">
+
+    </div>
+
+    <div id="resultado">
+        <h5>Adicione o nome do arquivo e a extensão, e clique em printar ( e.g. index.php )</h5>
+        <input type="text" id="filename" placeholder="index.php">
+        <button id="printa">Printar</button>
+    </div>
+
+
+</body>
+<script>
+    jQuery(function($){
+        var paideTodos = document.getElementById("html");
+
+        // Adiciona uma nova coluna com as devidas opções
+
+        $('#coluna').click(function(event){
+            event.preventDefault();
+            var coluna = $('#nomeColuna').val();
+           $('#nomeColuna').val('');
+
+        // Opções da Coluna
+
+        var colunaOption = '<div class="objeto" id="'+coluna+'">'+
+        '<select class="tipo" name="tipo" data-tipo="tipo_'+coluna+'">'+
+            '<option value="">Elemento</option>'+
+            '<option value="div">div</option>'+
+            '<option value="img">img</option>'+
+            '<option value="ul">ul</option>'+
+            '<option value="li">li</option>'+
+            '<option value="header">header</option>'+
+            '<option value="footer">footer</option>'+
+        '</select>'+
+
+        '<input type="text" data-tipo="id_'+coluna+'" placeholder="ID da DIV">'+
+
+        '<select class="tipo" name="tipo" data-tipo="colunas_'+coluna+'">'+
+            '<option value="">Colunas</option>'+
+            '<option value="1">1</option>'+
+            '<option value="2">2</option>'+
+            '<option value="3">3</option>'+
+            '<option value="4">4</option>'+
+            '<option value="5">5</option>'+
+            '<option value="6">6</option>'+
+            '<option value="7">7</option>'+
+            '<option value="8">8</option>'+
+            '<option value="9">9</option>'+
+            '<option value="10">10</option>'+
+            '<option value="11">11</option>'+
+            '<option value="12">12</option>'+
+        '</select>'+
+
+          '<select class="tipo" name="tipo" data-tipo="flex_'+coluna+'">'+
+            '<option value="">Flex Dir</option>'+
+            '<option value="row">row</option>'+
+            '<option value="column">column</option>'+
+          
+        '</select>'+
+
+        '<input type="text" data-tipo="classe_'+coluna+'" placeholder="Classe da DIV">'+
+        '<input type="text" data-tipo="conteudo_'+coluna+'" placeholder="Conteudo da DIV">'+
+
+            '<div class="controles">'+
+                '<a href="#" class="addLinha" data-item="'+coluna+'">+</a>'+
+                '<a href="#" class="removeLinha" data-item="'+coluna+'">-</a>'+
+            '</div>'+
+        '</div>';
+
+        $(paideTodos).append(colunaOption);
+
+        })
+
+        // Ao clicar em adicionar linha, pega os valores setados e gera um novo elemento
+        
+        console.log(paideTodos);
+        $(document).delegate(".addLinha", "click", function(event){
+        event.preventDefault();
+        var id = $(this).attr('data-item');
+        var obj = document.getElementById(id);
+        var objID = $(obj).find('[data-tipo="id_'+id+'"]').val();
+        var objtipo = $(obj).find('[data-tipo="tipo_'+id+'"]').val();
+        var objcoluna = $(obj).find('[data-tipo="colunas_'+id+'"]').val();
+        var objflex = $(obj).find('[data-tipo="flex_'+id+'"]').val();
+        var objclasse = $(obj).find('[data-tipo="classe_'+id+'"]').val();
+        var objconteudo = $(obj).find('[data-tipo="conteudo_'+id+'"]').val();
+
+        $('[data-linha="'+id+'"]').fadeOut();
+        var link = '';
+        if(objtipo == 'img'){
+            var link = ' src="'+objconteudo+'" ';
+            var objconteudo = '';
+        }
+       
+            $(paideTodos).append(
+                '<'+objtipo+' '+link+' data-linha="'+id+'" id="'+objID+'" class="linha col-'+objcoluna+' '+objclasse+' '+objflex+'">'+
+                    objconteudo +
+                    '<a href="#" class="addItem" data-item="'+id+'">Adicionar item</a>'+
+                '</'+objtipo+'>'
+            )
+        });
+
+
+        // Ao clicar em adicionar item, Adiciona um elemento filho na div em questão
+
+        $(document).delegate(".removeLinha", "click", function(event){
+            event.preventDefault();
+            var id = $(this).attr('data-item');
+            var obj = document.getElementById(id);
+           $(obj).remove();
+           $('[data-linha="'+id+'"]').remove();
+        })
+
+        // Ao clicar em adicionar item, Adiciona um elemento filho na div em questão
+
+        $(document).delegate(".addItem", "click", function(event){
+            event.preventDefault();
+            var itemID = $(this).attr('data-item')
+            console.log(itemID);
+            console.log('click');
+           $('[data-linha="'+itemID+'"]').append('<div class="item">teste</div>');
+        })
+
+        // Pega todo o código gerado, remove os botões de opções, e gera um arquivo com o nome e extensão escolhida.
+
+        $('#printa').click(function(){
+            $(".addItem, .add, .objeto").remove();
+            var resultado = $('#html')[0].outerHTML ;
+            var filename = document.getElementById('filename');
+            var arquivo = filename.value;
+            download(resultado, arquivo, 'text/html');
+
+        })
+
+        
+        
+    })
+</script>
+</html>
