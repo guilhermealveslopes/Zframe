@@ -2,15 +2,32 @@
 
 
  
- #html { margin: 50px 0; } 
-.linha { border: 1px dashed #52b9d8; margin: 10px 0;} 
-.linha, .item { position: relative; padding: 10px; display: flex; align-items: flex-start; flex-direction: column; width: -webkit-fill-available; } 
-.item { margin: 10px 0; border: 1px dashed #cecece; } 
+ #html { margin: 50px 0; z-index: 0 } 
+.linha { border: 1px dashed #52b9d8; margin: 10px 0; } 
+.linha { position: relative; padding: 10px; display: flex; align-items: flex-start; flex-direction: column; width: -webkit-fill-available; } 
 .addItem { position: absolute; right: 10px; text-decoration: none; background: #c3c3c3; padding: 5px; top: 5px; color: white; } 
-.controles { position: absolute; right: 0; top: 0; } 
-.controles * { margin: 5px; background: #057a8e; width: 15px; display: inline-block; text-align: center; padding: 5px; top: -5px; position: relative; text-decoration: none; color: white; font-weight: bold; } 
+.controles { position: absolute; right: 0; bottom: 60px; background: #2054d0; padding: 10px; color: wheat; } 
+.controles i { color:white; } 
+.controles:hover { background: #1a74e9; } 
+.controles .caixa-de-controle { display: none; } 
+.controles .caixa-de-controle .item { display: flex; flex-direction: row; padding: 10px; border: 1px dashed #cecece; justify-content: space-evenly; } 
+.caixa-de-controle .item i { font-size: 28px; display: flex; } 
 .objeto { position: relative; border: 2px dashed #057a8e; padding: 10px; } 
-
+#download { display: none; } 
 /* Flex */
 
-.row { flex-direction: row; }
+.row { flex-direction: row; } 
+
+img { width: 100%; } 
+
+.modal_2 { position: fixed; top: 0; height: 100vh; left: 0; background: #0e0e0eb5; width: 100%; overflow: hidden; padding: 0; margin: 0; display: none; align-items: center; justify-content: center; z-index: 9; } 
+.modal_2 .item { top: 0; width: 80%; margin:0 auto; height: 90%; z-index: 999999; display: flex; flex-wrap: wrap; flex-direction: row; align-items: center; justify-content: space-evenly; } 
+.elementos { display: flex; flex-wrap: wrap; justify-content: space-around; } 
+.bloco { flex-basis: 30%; margin-bottom: 30px; } 
+
+img.blocoZ { width: 100%; } 
+
+.ativo { opacity: 0.5; filter: grayscale(1); } 
+.relacionados { display: flex; } 
+.relacionados .item { flex-basis: 30%; font-size: 12px; color: white; background: #201d1d; text-align: center; padding: 50px; font-family: sans-serif; } 
+
