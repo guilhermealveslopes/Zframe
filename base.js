@@ -1,5 +1,3 @@
-
-
 function download(data, filename, type) {
     var file = new Blob([data], {type: type});
     if (window.navigator.msSaveOrOpenBlob) // IE10+
@@ -25,6 +23,13 @@ jQuery(function($){
             $('.caixa-de-controle').slideToggle();
         })
 
+        $('.nav-tab li').click(function(event){
+            event.preventDefault();
+            $('.tab').removeClass('ativa');
+            var tab = $(this).attr('class');
+            $('.tab').hide();
+            $('#'+tab).slideToggle();
+        })
 
         $('#form').click(function(event){
             event.preventDefault();
@@ -97,6 +102,7 @@ jQuery(function($){
          $(document).delegate("#modal", "click", function(event){
         
         event.preventDefault();
+        $('body').css('background', 'none');
         var tipo = $(this).attr('class');
         console.log('tipo ' + tipo);
         var bloco = document.getElementById(tipo);

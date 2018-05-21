@@ -5,37 +5,89 @@
     <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js'></script>
     <script src='base.js'></script>
     <script src='funcoes.js'></script>
+    <script type="text/javascript" src="dist/jszip.js"></script>
     <link rel="stylesheet" href="zpixel.css">
     <link rel="stylesheet" href="fonts.css">
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body style="background:url('zbg.jpg');">
     
     <div class="modal_2">
         <div class="item" id="portfolio">
             <div class="elementos">
-                <div class="bloco">
-                    <a href="#" class="block-link">
-                        <img class="blocoZ" id="1" data-block="relacionados" src="bloco1.png">
-                    </a>
+                <div class="nav-tab">
+                    <ul>
+                        <li class="tab-header">Header</li>
+                        <li class="tab-home">Home</li>
+                        <li class="tab-servicos">Servicos</li>
+                        <li class="tab-testemunhos">Testemunhos</li>
+                        <li class="tab-features">Features</li>
+                        <li class="tab-rodape">Rodape</li>
+                    </ul>
                 </div>
-                <div class="bloco">
-                    <a href="#" class="block-link">
-                        <img class="blocoZ" id="2" data-block="sobre" src="bloco2.png">
-                    </a>
+                <div class="tab ativa" id="tab-header">
+                    <div class="box-tab">
+                        <div class="bloco">
+                            <a href="#" class="block-link">
+                                <img class="blocoZ" id="4" data-block="header_credi" src="blocos/header.png">
+                            </a>
+                        </div>
+                    </div>
                 </div>
-                <div class="bloco">
-                    <a href="#" class="block-link">
-                        <img class="blocoZ" id="3" data-block="depoimentos" src="bloco3.png">
-                    </a>
+                <div class="tab" id="tab-home">
+                    <div class="box-tab">
+                        <div class="bloco">
+                            <a href="#" class="block-link">
+                                <img class="blocoZ" id="4" data-block="simulacao_credi" src="blocos/simulador.png">
+                            </a>
+                        </div>
+                    </div>
                 </div>
-                <div class="bloco">
-                    <a href="#" class="block-link">
-                        <img class="blocoZ" id="4" data-block="noticias" src="bloco4.png">
-                    </a>
+                <div class="tab" id="tab-servicos">
+                    <div class="box-tab">
+                        <div class="bloco">
+                            <a href="#" class="block-link">
+                                <img class="blocoZ" id="4" data-block="sobre" src="blocos/sobre.png">
+                            </a>
+                        </div>
+                    </div>
                 </div>
+                <div class="tab" id="tab-testemunhos">
+                    <div class="box-tab">
+                        <div class="bloco">
+                            <a href="#" class="block-link">
+                                <img class="blocoZ" id="4" data-block="depoimentos" src="blocos/depoimentos.png">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="tab" id="tab-features">
+                    <div class="box-tab">
+                        <div class="bloco">
+                            <a href="#" class="block-link">
+                                <img class="blocoZ" id="1" data-block="estatisticas_credi" src="blocos/estatisticas.png">
+                            </a>
+                        </div>
+                        <div class="bloco">
+                            <a href="#" class="block-link">
+                                <img class="blocoZ" id="2" data-block="noticias" src="blocos/blog.png">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab" id="tab-rodape">
+                    <div class="box-tab">
+                        <div class="bloco">
+                            <a href="#" class="block-link">
+                                <img class="blocoZ" id="1" data-block="rodape_credi" src="blocos/rodape.png">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <button id="modal" class="portfolio">Adicionar Bloco</button>
             </div>
-            <button id="modal" class="portfolio">Adicionar Bloco</button>
+           
         </div>
     </div>
         
@@ -49,10 +101,10 @@
         <div class="caixa-de-controle">
             <div class="item">
                 <div id="addColuna">
-                    <i class="icon-plus-square-o" id="coluna"></i>
+                    <i class="icon-plus-square-o" title="Adicionar conteúdo" id="coluna"></i>
                 </div>
                 <div id="resultado">
-                    <i class="icon-down-circled" id="form"></i>
+                    <i class="icon-down-circled"  title="Gerar novo arquivo ( Download )"  id="form"></i>
                     
                 </div>
             </div>

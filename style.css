@@ -22,7 +22,7 @@ header .menu { display: flex; align-items: center; }
 .menu ul li.login li:last-child { margin: 0; } 
 /* Simulação */
 
-.simulacao-home { background: url('../img/banner_simulacao.jpg'); background-size:cover; height: 340px; } 
+.simulacao-home { background: url('img/banner_simulacao.jpg'); background-size:cover; height: 340px; } 
 .simulacao-home .container { display: flex; height: 100%; justify-content: space-around; align-items: center; } 
 .simulacao-home .container .chamada h2 { width: fit-content; background: #00386fc4; padding: 10px; color: white; } 
 .simulacao-home .container .chamada span { background: #00386f; padding: 10px; font-weight: bold; color: white; } 
@@ -62,7 +62,7 @@ header .menu { display: flex; align-items: center; }
 
 /* Estatisticas */
 
-.estatisticas { background:linear-gradient(rgba(0, 0, 0, 0.63), rgba(0, 56, 111, 0.72) ), url(../img/banner_simulacao.jpg); background-size:cover; height: 160px; background-position: center; display: flex; justify-content: center; align-content: center; flex-direction: column; } 
+.estatisticas { background:linear-gradient(rgba(0, 0, 0, 0.63), rgba(0, 56, 111, 0.72) ), url(img/banner_simulacao.jpg); background-size:cover; height: 160px; background-position: center; display: flex; justify-content: center; align-content: center; flex-direction: column; } 
 .estatisticas .container { height: 100%; } 
 .estatisticas ul { height: 100%; margin:0; display: flex; justify-content: space-around; padding: 0; align-items: center; } 
 .estatisticas ul li { list-style: none; text-align: center; color: white; font-size: 32px; font-weight: bold; } 
