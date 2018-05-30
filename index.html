@@ -2,7 +2,7 @@
 <head>
     <meta charset="utf-8"/>
     <title>Frame</title>
-    <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js'></script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.6.2.js"></script>
     <script src='base.js'></script>
     <script src='funcoes.js'></script>
     <script type="text/javascript" src="dist/jszip.js"></script>
@@ -11,8 +11,86 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body style="background:url('zbg.jpg');">
+   
+    <div class="menu-frame">
+        <div class="lateral-menu nav-tab">
+           <ul>
+                <li class="tab-header">Header</li>
+                <li class="tab-home">Home</li>
+                <li class="tab-servicos">Servicos</li>
+                <li class="tab-testemunhos">Testemunhos</li>
+                <li class="tab-features">Features</li>
+                <li class="tab-rodape">Rodape</li>
+           </ul>
+           <button id="modal" class="portfolio">Adicionar Bloco</button>
+        </div>
+        <a href="#" class="ativa-menu"><i class="icon-angle-left"></i></a>
+        <div class="conteudo-menu">
+            <div class="tab ativa" id="tab-header">
+                    <div class="box-tab">
+                        <div class="bloco">
+                            <a href="#" class="block-link">
+                                <img class="blocoZ" id="4" data-block="header_credi" src="blocos/header.png">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab" id="tab-home">
+                    <div class="box-tab">
+                        <div class="bloco">
+                            <a href="#" class="block-link">
+                                <img class="blocoZ" id="4" data-block="simulacao_credi" src="blocos/simulador.png">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab" id="tab-servicos">
+                    <div class="box-tab">
+                        <div class="bloco">
+                            <a href="#" class="block-link">
+                                <img class="blocoZ" id="4" data-block="sobre" src="blocos/sobre.png">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab" id="tab-testemunhos">
+                    <div class="box-tab">
+                        <div class="bloco">
+                            <a href="#" class="block-link">
+                                <img class="blocoZ" id="4" data-block="depoimentos" src="blocos/depoimentos.png">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="tab" id="tab-features">
+                    <div class="box-tab">
+                        <div class="bloco">
+                            <a href="#" class="block-link">
+                                <img class="blocoZ" id="1" data-block="estatisticas_credi" src="blocos/estatisticas.png">
+                            </a>
+                        </div>
+                        <div class="bloco">
+                            <a href="#" class="block-link">
+                                <img class="blocoZ" id="2" data-block="noticias" src="blocos/blog.png">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab" id="tab-rodape">
+                    <div class="box-tab">
+                        <div class="bloco">
+                            <a href="#" class="block-link">
+                                <img class="blocoZ" id="1" data-block="rodape_credi" src="blocos/rodape.png">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+        </div>
+    </div>
     
-    <div class="modal_2">
+    <!-- <div class="modal_2">
+        <div class="fecha"> <span class="X">X</span></div>
         <div class="item" id="portfolio">
             <div class="elementos">
                 <div class="nav-tab">
@@ -85,18 +163,18 @@
                         </div>
                     </div>
                 </div>
-                <button id="modal" class="portfolio">Adicionar Bloco</button>
+               s
             </div>
            
         </div>
-    </div>
+    </div> -->
         
     <!-- Armazena o conteudo antes de printar -->
     <div id="html">
 
     </div>
 
-    <div class="controles">
+    <!-- <div class="controles">
         <i class="icon-angle-double-left"></i>
         <div class="caixa-de-controle">
             <div class="item">
@@ -113,7 +191,7 @@
                 <button id="printa">Download</button>
             </form>
         </div>  
-    </div>
+    </div> -->
 
 </body>
 </html>

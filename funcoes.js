@@ -16,7 +16,7 @@ var iniciahtml =
     '</body>';
 
 var header_credi =  '<!-- Cabeçalho -->'+
-    '<header>'+
+    '<header class="header_credi">'+
         '<div class="container">'+
             '<div class="logo">'+
                 '<img src="img/logo.png" alt="">'+

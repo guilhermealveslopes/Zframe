@@ -5,7 +5,6 @@ body { margin: 0; font-family: 'Helvetica', 'Arial', sans-serif; }
 * { transition:.5s ease-in-out; } 
 i { font-family: untitled-font-1 } 
 /* Header */
-
 header { height: 80px; display: flex; align-items: center; } 
 header .container { display: flex; justify-content: space-between; } 
 header .menu { display: flex; align-items: center; } 

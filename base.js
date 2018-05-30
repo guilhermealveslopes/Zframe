@@ -18,6 +18,18 @@ function download(data, filename, type) {
  
 jQuery(function($){
 
+   
+
+    $(document).delegate(".edit_element", "click", function(event){
+            event.preventDefault();
+            var x = $(this).attr('data-close');
+            $('.'+x).remove();
+            $(this).remove();
+        })
+
+        $('.fecha span').click(function(){
+            $('.modal_2').fadeOut();
+        })
         $('.controles i:not(#form)').click(function(event){
             event.preventDefault();
             $('.caixa-de-controle').slideToggle();
@@ -30,6 +42,27 @@ jQuery(function($){
             $('.tab').hide();
             $('#'+tab).slideToggle();
         })
+
+
+        $('.lateral-menu ul li').click(function(event){
+            event.preventDefault();
+            $('.conteudo-menu').fadeToggle('slow');
+        })
+
+        $(".ativa-menu").click(function () {
+            $('.conteudo-menu').fadeOut();
+            var effect = 'width';
+            var duration = 500;
+            //get the outer width of the div
+            var divOuterWidth= $(".menu-frame .lateral-menu").outerWidth();
+            divOuterWidth+= 8; //the margin on the body element
+            
+            var targetMargin = $('.menu-frame .lateral-menu').css("margin-left")==((-divOuterWidth)+"px")?"0px":(-divOuterWidth)+"px";
+            
+            $('.menu-frame .lateral-menu').animate({marginLeft: targetMargin},duration);
+            $('.ativa-menu').animate({marginLeft: targetMargin},duration);
+            $('.ativa-menu').html('<i class="icon-angle-right"></i>');
+            });
 
         $('#form').click(function(event){
             event.preventDefault();
@@ -102,16 +135,18 @@ jQuery(function($){
          $(document).delegate("#modal", "click", function(event){
         
         event.preventDefault();
+        $('.conteudo-menu').fadeOut();
         $('body').css('background', 'none');
         var tipo = $(this).attr('class');
         console.log('tipo ' + tipo);
         var bloco = document.getElementById(tipo);
         console.log('bloco ' + bloco);
-        var imgblock = $(bloco).find('.blocoZ.ativo').attr('data-block');
-        console.log('imgblock ' + imgblock);
-        console.log('var ' + window[imgblock]);
+        var imgblock = $(document).find('.blocoZ.ativo').attr('data-block');
+        console.log(imgblock);
+        var edit = '<div class="edit_element"><a href="#" class="edit_element" data-close="'+imgblock+'">x</a></div>';
+        var resultado = window[imgblock] + edit;
         $(paideTodos).append(
-            window[imgblock]
+            resultado
         )
         $('.modal_2').fadeOut();
          });
@@ -178,8 +213,20 @@ jQuery(function($){
 
         $(document).delegate(".block-link", "click", function(event){
             event.preventDefault();
+            if($(this).find('img').hasClass('ativo')){
+                var ativo = true;
+            }
+            else {
+                var ativo = false;
+            }
             $('.block-link').find('img').removeClass('ativo');
             $(this).find('img').addClass('ativo');
+            if(ativo == true){
+                $('.block-link').find('img').removeClass('ativo'); 
+            }
+            else{
+                $(this).find('img').addClass('ativo');
+            }
 
         })
 

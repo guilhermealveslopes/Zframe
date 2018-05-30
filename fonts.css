@@ -503,3 +503,15 @@
 .icon-down-circled:before {
   content: "\e03c";
 }
+.icon-cancel:before {
+  content: "\e03d";
+}
+.icon-cancel-circled:before {
+  content: "\e03e";
+}
+.icon-forbidden:before {
+  content: "\e03f";
+}
+.icon-lock:before {
+  content: "\e040";
+}

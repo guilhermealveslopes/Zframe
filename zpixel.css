@@ -2,7 +2,7 @@
 
 
  body { background-size: cover!important; } 
- #html { margin: 50px 0; z-index: 0 } 
+ #html { margin: 0; z-index: 0 } 
 .linha { border: 1px dashed #52b9d8; margin: 10px 0; } 
 .linha { position: relative; padding: 10px; display: flex; align-items: flex-start; flex-direction: column; width: -webkit-fill-available; } 
 .addItem { position: absolute; right: 10px; text-decoration: none; background: #c3c3c3; padding: 5px; top: 5px; color: white; } 
@@ -19,7 +19,7 @@
 .row { flex-direction: row; } 
 
 img { width: 100%; } 
-#modal { background: #e97e1c; border: none; color: white; position: absolute; top: 0; right: 20px; padding: 10px 25px; cursor: pointer; } 
+#modal { background: #e97e1c; border: none; color: white; top: 0; right: 20px; padding: 10px 25px; cursor: pointer; } 
 #modal:hover { background: #e9611c; } 
 .modal_2 { position: fixed; top: 0; height: 100vh; left: 0; background: #0e0e0eb5; width: 100%; overflow: hidden; padding: 0; margin: 0; display: none; align-items: center; justify-content: center; z-index: 9; } 
 .modal_2 .item { top: 0; width: 80%; margin:0 auto; height: 90%; z-index: 999999; display: flex; flex-wrap: wrap; flex-direction: row; align-items: center; justify-content: space-evenly; } 
@@ -38,3 +38,21 @@ img.blocoZ { width: 100%; }
 
 .tab { display: none; } 
 .tab.ativa { display: block!important; } 
+
+.edit_element { position: absolute; width: 100%; display: flex; justify-content: flex-end; align-items: center; top: 15px; background: #22212a26; z-index: 99; height: 50px; } 
+.edit_element a { padding: 10px 15px; background: #48436c; border-radius: 50px; margin-right: 50px; color: white; text-decoration: none; text-align: center; width: 10px; height: 20px; display: flex; right: 0; top: 5px; justify-content: center; font-size: 28px; } 
+
+.fecha span { cursor: pointer; color: white; font-size: 32px; position: absolute; right: 40px; top: 20px; } 
+
+/*Menu */
+
+.menu-frame { position: absolute; width: 100%; top:0; height: 100vh; display: flex; } 
+
+.conteudo-menu { flex-basis: 80%; background: #000000de; display: none; opacity: 1; transition: .4s ease-in-out; } 
+
+.lateral-menu { flex-basis: 20%; background: #252936; } 
+.ativa-menu { position: absolute; bottom: 5%; left: 20%; background: #252936; padding: 15px 5px; } 
+.ativa-menu i { color:white; text-decoration: none; } 
+
+.menu-frame ul li { margin-left: 30px; cursor: pointer; list-style: none; font-size: 14px; text-transform: uppercase; color: #cccccc; font-weight: bold; display: flex; margin: 10px 0; } 
+.menu-frame ul { padding-left: 30px; display: flex; justify-content: space-around; flex-direction: column; } 
