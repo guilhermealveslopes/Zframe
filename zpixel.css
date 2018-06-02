@@ -232,9 +232,24 @@ background: #252936;
 
 /* LightBox */
 all { font-size: 0.8em; }
-
+.lightbox .alerta {    
+   display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+.lightbox .alerta span {
+  background: #e8e8e8;
+  padding: 40px 80px;
+  border-radius: 5px;
+  font-family: 'Lato',sans-serif;
+  text-decoration: none;
+  font-size: 18px;
+  color: #272727;
+}
 .lightbox {
-	display: none;
+  display: none;
+  text-decoration: none;
 	position: fixed;
 	z-index: 999;
 	width: 100%;
@@ -278,6 +293,7 @@ all { font-size: 0.8em; }
   position: relative;
   color: white;
   list-style: none;
+  margin-right: 20px;
 }
 .material .bloco .controles {
   display: flex;
