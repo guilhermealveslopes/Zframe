@@ -494,9 +494,6 @@
 .icon-angle-left:before {
   content: "\6a";
 }
-.icon-plus:before {
-  content: "\e03a";
-}
 .icon-plus-square-o:before {
   content: "\e03b";
 }
@@ -514,4 +511,25 @@
 }
 .icon-lock:before {
   content: "\e040";
+}
+.icon-plus:before {
+  content: "\e03a";
+}
+.icon-plus-circle:before {
+  content: "\e041";
+}
+.icon-plus-1:before {
+  content: "\e042";
+}
+.icon-handle-streamline-vector:before {
+  content: "\e043";
+}
+.icon-browser:before {
+  content: "\e044";
+}
+.icon-question:before {
+  content: "\e045";
+}
+.icon-object-group:before {
+  content: "\e046";
 }
