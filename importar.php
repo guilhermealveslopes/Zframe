@@ -28,11 +28,7 @@ if(isset($_POST["submit"])) {
     if($check !== false) {
         echo 'Novo bloco ['.$bloco_nome.'] criado com sucesso!';
         echo 'Thumbnail:';
-        echo '<img src="'.$thumb_dir.$thumb.'"><br>';
-
-        echo 'Imagem do bloco:';
-        echo '<img src="'.$full_dir.$full.'"><br>';
-
+        echo '<img src="'.$thumb_dir.$thumb.'">';
         move_uploaded_file($_FILES["full"]["tmp_name"], $full_dir.$full);
         move_uploaded_file($_FILES["thumb"]["tmp_name"], $thumb_dir.$thumb);
         $uploadOk = 1;

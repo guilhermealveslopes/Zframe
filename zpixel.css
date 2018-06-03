@@ -116,6 +116,7 @@ background: #252936;
 }
 .menu_componentes li#elementos .sub-elementos ul li {
   width: 85%;
+  text-transform: capitalize;
   margin-top: 5px;
   font-family: 'Lato',sans-serif;
   font-size: 16px;
@@ -203,7 +204,7 @@ background: #252936;
 
 /* Modal Elementos */
 
-#modal-elementos{
+.modal{
   top:0;
   height: 100vh;
   position: fixed;
@@ -216,9 +217,9 @@ background: #252936;
   z-index: 1;
   background: #2d1744;
 }
-#modal-elementos.ativo { opacity: 1;}
+.modal.ativo { opacity: 1;}
 .index { z-index: 5!important; }
-#modal-elementos .icon-bolt{
+.modal .icon-bolt{
   position: absolute;
   cursor: pointer;
   top: 40px;
@@ -226,10 +227,147 @@ background: #252936;
   font-size: 20px;
   color: #d2d1cf;
 }
-#modal-elementos .icon-bolt:hover {
+.modal .icon-bolt:hover {
   color: #ff8d00;
 }
 
+#modal-formulario .coluna { 
+  flex:1;
+}
+#modal-formulario .material, #modal-elementos .material {
+  display: none;
+}
+#modal-formulario .sucesso {
+  background: #131313;
+  padding: 25px;
+  height: fit-content;
+  display: flex;
+  flex: 1;
+  color: white;
+  font-family: 'Lato',sans-serif;
+  font-weight: 400;
+}
+#modal-formulario .sucesso .blocoNome{
+  color: #e87a2b;
+ }
+ #modal-formulario .sucesso .tipo{
+  color: #ff7a09;
+  font-weight: bold;
+ }
+ #modal-formulario .sucesso p.titulo {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+#modal-formulario .sucesso ul {
+  margin-top: 10px;
+}
+
+#modal-formulario .sucesso ul li {
+  margin-top: 5px;
+  font-style: italic;
+}
+#modal-formulario .sucesso ul li a {
+  color: #928a8a;
+}
+#modal-formulario #novo-bloco {
+  margin-top: 10px;
+  display: flex;
+  position: inherit;
+  padding: 10px;
+  background: #131313;
+  font-size: 15px;
+  color: #f7f7f7;
+  width: fit-content;
+  text-decoration: none;
+  font-weight: 800;
+  font-family: 'Lato',sans-serif;
+  text-shadow: none;
+}
+#modal-formulario input[type="text"]::-webkit-input-placeholder { 
+  color: white;
+}
+#modal-formulario input[type="text"]::-moz-placeholder {
+  color: white;
+}
+#modal-formulario input[type="text"]:-ms-input-placeholder { 
+  color: white;
+}
+#modal-formulario input[type="text"]:-moz-placeholder { 
+  color: white;
+}
+#modal-formulario .coluna form {
+  width: 80%;
+}
+#modal-formulario .coluna form *:focus {
+  outline: 1px solid #833ecc;
+}
+
+#modal-formulario .form h1 {
+    color: white;
+    border-bottom: 2px solid #6f3ca5;
+    width: fit-content;
+    padding-right: 30px;
+    padding-bottom: 10px;
+ }
+ #modal-formulario .form input[type="text"] {
+  background: #d8d8d800;
+  padding: 10px;
+  border: none;
+  color: #c8c7ca;
+  border-bottom: 1px solid #6f3ca5;
+  margin-bottom: 10px;
+ }
+ #modal-formulario .form textarea {
+  background: #131313;
+  border: none;
+  padding: 22px;
+  font-weight: bold;
+  color: #dadada;
+  margin-bottom: 20px;
+ }
+#modal-formulario select {
+  margin: 10px 0;
+    background: white;
+    width: fit-content;
+    padding: 5px 25px;
+    margin-left: 15px;
+}
+#modal-formulario .anexo {
+  display: flex;
+  overflow: hidden;
+  flex-direction: column;
+}
+#modal-formulario .anexo .nomedathumb p, #modal-formulario .anexo .nomedaimg p{
+  margin-left: 10px;
+  color: #d9d2e0;
+  border: 1px solid;
+  padding: 4px 10px;
+  font-size: 12px;
+}
+#modal-formulario #criar-bloco {
+  width: fit-content;
+    text-align: center;
+    padding: 10px;
+    margin-top: 20px;
+}
+.anexo h2 {
+  font-size: 18px;
+  color: white;
+  font-weight: 300;
+}
+.anexo label {
+  display: flex;
+  margin-bottom: 10px;
+  align-items: center;
+}
+.anexo i {
+  display: flex;
+  margin-left: 10px;
+  color: #ae7fe0;
+  font-size: 24px;
+}
+#modal-formulario .anexo input[type="file"]{display: none;}
 /* LightBox */
 all { font-size: 0.8em; }
 .lightbox .alerta {    
@@ -280,6 +418,8 @@ all { font-size: 0.8em; }
   position: relative;
 }
 .material .bloco { 
+  flex-wrap: wrap;
+  overflow-y: scroll;
   display: none;
   width: 100%;
   position: absolute;
