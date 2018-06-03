@@ -12,18 +12,29 @@ $fw = fwrite($fp, $bloco_html);
 $fp = fopen("blocos_css/" . $bloco_tipo . "/" . $bloco_nome .".css", "w");
 $fw = fwrite($fp, $bloco_css);
 
-$target_dir = "blocos_img/" . $bloco_tipo . "/";
-$target_file = $target_dir . basename($_FILES["bloco_img"]["name"]);
+$full_dir = "blocos_img/" . $bloco_tipo . "/" . "full/";
+$thumb_dir = "blocos_img/" . $bloco_tipo . "/";
 $uploadOk = 1;
-$imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
-$extensao = explode(".", $_FILES["bloco_img"]["name"]);
-$img = $bloco_nome . '.' . end($extensao);
+
+#Trata as imagens enviadas, renomeando de acordo com o bloco
+$full_extensao = explode(".", $_FILES["full"]["name"]);
+$full = $bloco_nome . '.' . end($full_extensao);
+
+$thumb_extensao = explode(".", $_FILES["thumb"]["name"]);
+$thumb = $bloco_nome . '.' . end($thumb_extensao);
 
 if(isset($_POST["submit"])) {
-    $check = getimagesize($_FILES["bloco_img"]["tmp_name"]);
+    $check = getimagesize($_FILES["full"]["tmp_name"]);
     if($check !== false) {
         echo 'Novo bloco ['.$bloco_nome.'] criado com sucesso!';
-        move_uploaded_file($_FILES["bloco_img"]["tmp_name"], $target_dir.$img);
+        echo 'Thumbnail:';
+        echo '<img src="'.$thumb_dir.$thumb.'"><br>';
+
+        echo 'Imagem do bloco:';
+        echo '<img src="'.$full_dir.$full.'"><br>';
+
+        move_uploaded_file($_FILES["full"]["tmp_name"], $full_dir.$full);
+        move_uploaded_file($_FILES["thumb"]["tmp_name"], $thumb_dir.$thumb);
         $uploadOk = 1;
     } else {
         echo "Anexo inválido.";
