@@ -39,6 +39,8 @@ $( document ).ready(function() {
 
    dragula([document.getElementById("html")]);
 
+
+
    // **** Abre e Fecha modal dos elementos *** //
 
     $('.sub-elementos ul li').click(function(){
@@ -84,19 +86,29 @@ $( document ).ready(function() {
 })
 
 jQuery(function($){
+    var form;
     // Salva o nome da thumb enviada a ser inserida na tela de sucesso!
     $(document).on('change', 'input[name="thumb"]',function(e){
+        form = new FormData();
+        form.append('thumb', event.target.files[0]);
         var thumbSelecionada = e.target.files[0].name;
         $(this).attr('data-img', thumbSelecionada);
+        thumb = e.target.files[0];
         $('.nomedathumb').html('<p>'+thumbSelecionada+'</p>');
     });
     $(document).on('change','input[name="full"]', function(e){
         var imgselecionada = e.target.files[0].name;
         $(this).attr('data-img', imgselecionada);
+        file = e.target.files[0];
         $('.nomedaimg').html('<p>'+imgselecionada+'</p>');
     });
 
-$('.form').on('click', '#criar-bloco', function() {
+$('#formbloco').submit(function(e) {
+    e.preventDefault();
+
+    var formData = new FormData(this);
+    formData.append('thumb', thumb);
+    console.log(thumb);
     $('#code-form').addClass('bloco-adicionado');
     var thumb = $('#thumb').attr('data-img');
     var thumb = thumb.split('.');
@@ -108,13 +120,14 @@ $('.form').on('click', '#criar-bloco', function() {
     var diretorioIMG = 'blocos_img/'+ bloco_tipo + '/';
     alert(bloco_tipo);
     $.ajax({
-        
         url: 'importar.php',
-        type: 'post',
+        type: 'POST',
         cache: false,
         contentType: false,
-        data: $('form').serialize(),
+        processData: false,
+        data:formData,
         success: function (response) {
+            alert(response);
             $('.material .coluna').find('form').slideUp();
             $('.coluna.form').delay(800).html(
                 '<div class="sucesso">'+
@@ -146,9 +159,27 @@ $('.form').on('click', '#criar-bloco', function() {
         }               
     });
 });
-
+$('.alerta').click(function(){
+    alert('Você está preste a excluir um bloco de conteúdo. Esta ação é irreversível');
+    $('.alerta').remove();
+})
 })
 
+
+// Exclui bloco via painel
+
+$(document).on('click', '.painel li', function(){
+    var caminho = $(this).attr('data-bloco');
+    var nome = $(this).attr('data-nome');
+     $.ajax({ url: 'painel.php',
+         data: {caminho: caminho},
+         type: 'post',
+         success: function(output) {
+             $('.lista').html(output);
+             alert('Bloco '+nome+' excluido com sucesso!');
+         }
+     });
+})
 
 function notificacao() {
     if (Notification.permission !== "granted")

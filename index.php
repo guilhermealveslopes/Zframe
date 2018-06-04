@@ -66,7 +66,7 @@
         <div class="material">
             <div class="coluna form">
                 <h1>Adicionar novo bloco</h1>
-            <form class="" action="importar.php" method="post" style="display:flex;flex-direction:column;" enctype="multipart/form-data">
+            <form id="formbloco" class="form-blocos" action="importar.php" method="post" style="display:flex;flex-direction:column;" enctype="multipart/form-data">
 
             <input type="text" id="novo_bloco" placeholder="Nome arquivo" name="bloco_nome" value="">
             <textarea name="bloco_html" rows="8"  placeholder="bloco html" cols="80"></textarea>
@@ -93,16 +93,22 @@
                 </label>
             </div>
            
-            
-            
            
             <!-- Desabilita o ajax, e grava a img normalmente 
-            <input type="submit" id="criar-bloco"  name="submit" value="Enviar"> -->
-            <input id="criar-bloco"  name="submit" value="Enviar">
+            <input id="criar-bloco"  name="submit" value="Enviar"> -->
+            <input type="submit" id="criar-bloco"  name="submit" value="Enviar">
             </form>
 
             </div>
-            <div class="coluna">2</div>
+            <div class="coluna painel">
+                <div class="alerta"></div>
+                <div class="heading">
+                   <h2>Últimos blocos adicionados</h2>
+                </div>
+                <div class="lista">
+                    <?php include('painel.php') ?>
+                </div>
+            </div>
         </div>
         <i class="icon-bolt"></i>
     </div>

@@ -351,6 +351,40 @@ background: #252936;
     padding: 10px;
     margin-top: 20px;
 }
+#modal-formulario .painel { 
+  margin-top: 40px;
+    background: #efefef;
+    margin-left: 50px;
+    padding: 20px;
+    position: relative;
+}
+#modal-formulario .alerta{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+}
+#modal-formulario .painel .heading h2 {
+  margin-bottom: 35px;
+    color: #2d1744;
+}
+#modal-formulario .painel li {
+  background: #e0e0e0;
+  padding: 10px;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+}
+#modal-formulario .painel li span {
+  background: #4b2375;
+  padding: 5px 15px;
+  color: #c9c8ca;
+  margin-left: 20px
+}
+.coluna li {
+  margin-bottom: 20px;
+}
 .anexo h2 {
   font-size: 18px;
   color: white;

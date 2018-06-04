@@ -3,7 +3,9 @@ $bloco_nome = $_POST["bloco_nome"];
 $bloco_tipo = $_POST["bloco_tipo"];
 $bloco_html = $_POST["bloco_html"];
 $bloco_css  = $_POST["bloco_css"];
-
+$thumbnail = $_FILES["full"]["name"];
+$tmpName = $_FILES["full"]["tmp_name"];
+$tmpNameThumb = $_FILES["thumb"]["tmp_name"];
 #Criar o arquivo HTML
 $fp = fopen("blocos_html/" . $bloco_tipo . "/" . $bloco_nome .".html", "w");
 $fw = fwrite($fp, $bloco_html);
@@ -29,8 +31,8 @@ if(isset($_POST["submit"])) {
         echo 'Novo bloco ['.$bloco_nome.'] criado com sucesso!';
         echo 'Thumbnail:';
         echo '<img src="'.$thumb_dir.$thumb.'">';
-        move_uploaded_file($_FILES["full"]["tmp_name"], $full_dir.$full);
-        move_uploaded_file($_FILES["thumb"]["tmp_name"], $thumb_dir.$thumb);
+        move_uploaded_file($tmpNameFull, $full_dir.$full);
+        move_uploaded_file($tmpNameThumb, $thumb_dir.$thumb);
         $uploadOk = 1;
     } else {
         echo "Anexo inválido.";
