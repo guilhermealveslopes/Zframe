@@ -53,8 +53,8 @@ $( document ).ready(function() {
 
         $('.icon-bolt').fadeIn();
         $('#modal-elementos').addClass('index'); // Altera o z-index, trazendo a modal para frente do conteúdo
-        $('.material').removeClass('.ativo'); // Procura pelo material ativo e oculta
-        $('.material').find('.ativo').css('opacity', '0').css('z-index','1'); // Procura pelo material ativo e oculta
+        $('.bloco').removeClass('ativo'); // Procura pelo material ativo e oculta
+        $('.bloco').css('opacity', '0').css('z-index','0'); // Procura pelo material ativo e oculta
         $('.material-'+tipo).css('display', 'flex').css('opacity', '1').css('z-index','2'); // Ativa o material selecionado
         $('.material-'+tipo).addClass('ativo'); // Adiciona a classe 'ativo' ao material selecionado, 
         // tornando-o alvo para ser ocultado no próximo click
@@ -90,7 +90,7 @@ jQuery(function($){
     // Salva o nome da thumb enviada a ser inserida na tela de sucesso!
     $(document).on('change', 'input[name="thumb"]',function(e){
         form = new FormData();
-        form.append('thumb', event.target.files[0]);
+        form.append('thumb', e.target.files[0]);
         var thumbSelecionada = e.target.files[0].name;
         $(this).attr('data-img', thumbSelecionada);
         thumb = e.target.files[0];

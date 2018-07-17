@@ -2,24 +2,37 @@
 <head>
     <meta charset="utf-8"/>
     <title>Frame</title>
-    <script
-    src="https://code.jquery.com/jquery-3.3.1.min.js"
-    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-    crossorigin="anonymous"></script>
-    <script src='base.js'></script>
-    <script src='funcoes.js'></script>
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/dragula/3.7.2/dragula.min.js'></script>
+   
+
+
 
     <link rel="stylesheet" href="reset.css">
     <link rel="stylesheet" href="zpixel.css">
-    <link href="https://file.myfontastic.com/p4uUXPejECK4vhCgLyCmka/icons.css" rel="stylesheet">
+    <!-- BOOTSTRAP -->
+	<!-- FAVICON -->
+	<link rel="shortcut icon" href="images/favicon.ico">
+
+	<!-- BOOTSTRAP -->
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+
+	<!-- ICONS -->
+	<link rel="stylesheet" href="css/icons/fontawesome/css/style.css">
+	<link rel="stylesheet" href="css/icons/style.css">
+	<link rel="stylesheet" href="css/icons/icon2/style.css">
+	<link rel="stylesheet" href="js/vendors/swipebox/css/swipebox.min.css">
+
+	<!-- THEME / PLUGIN CSS -->
+	<link rel="stylesheet" href="js/vendors/slick/slick.css">
+	<link rel="stylesheet" href="css/style.css">
+
+	<!-- SKIN -->
+	<link rel="stylesheet" href="css/skin/default.css">
+    <link rel="stylesheet" href="css/font.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <div class="blocos_html">
-    <pre>
         <?php include('functions.php') ?>
-    </pre>
 </div>
     <!-- *** MENU COMPONENTES *** -->
     <aside class="menu_componentes aberto">
@@ -49,7 +62,6 @@
 
 
     <div id="html">
-
     </div>
 
     <!-- Modal que carrega os blocos, Separados por tipo. -->
@@ -87,8 +99,11 @@
                 <label for="tipo">
                     <h2>Tipo de bloco:</h2>
                     <select class="bloco_tipo" name="bloco_tipo">
-                        <option value="header">Header</option>
-                        <option value="footer">Footer</option>
+                        <?php 
+                            foreach($data as $tipo){
+                                echo '<option value="'.$tipo.'">'.$tipo.'</option>';
+                            }
+                        ?>
                     </select>
                 </label>
             </div>
@@ -114,4 +129,39 @@
     </div>
 
 </body>
+
+
+
+
+<!-- JAVASCRIPT =============================-->
+<script src="js/jquery.js"></script>
+<script src='base.js'></script>
+<script src='funcoes.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/dragula/3.7.2/dragula.min.js'></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/vendors/slick/slick.min.js"></script>
+<script src="js/vendors/jquery.easing.min.js"></script>
+<script src="js/vendors/stellar.js"></script>
+<script src="js/vendors/isotope/isotope.pkgd.js"></script>
+<script src="js/vendors/swipebox/js/jquery.swipebox.min.js"></script>
+<script src="js/vendors/mc/jquery.ketchup.all.min.js"></script>
+<script src="js/vendors/mc/main.js"></script>
+<script>
+    jQuery(function($){
+        $('document').ready(function(){
+            $('.addblock').on('click', function(){ 
+                $('#main').remove();
+                var script = document.createElement("script");
+                script.type = "text/javascript";
+                script.src = "js/main.js"; 
+                script.id = "main";
+                document.getElementsByTagName("head")[0].appendChild(script);
+                return false;
+
+           }) 
+        })
+    })
+
+</script>
+
 </html>

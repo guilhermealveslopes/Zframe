@@ -3,7 +3,7 @@
   margin-top: 20px;
 }
 
-#html { position: relative; z-index: 2;}
+#html { position: relative; z-index: 99999;}
 
 .menu_componentes{
   position:fixed;
@@ -12,7 +12,7 @@
   width:60px;
   height:100vh;
   color:#fff;
-  z-index: 99;
+  z-index: 99999999999;
   transform:translateX(-100%);
   transition:0.5s;
 background: #252936;
@@ -102,7 +102,7 @@ background: #252936;
   border-left: 11px solid #252936;
 }
 .menu_componentes li#elementos:hover .sub-elementos {
-  width: 130px;
+  width: fit-content;
   padding: 10px;
   display: flex;
 }
@@ -115,7 +115,7 @@ background: #252936;
   margin-top: 0;
 }
 .menu_componentes li#elementos .sub-elementos ul li {
-  width: 85%;
+  width: fit-content;
   text-transform: capitalize;
   margin-top: 5px;
   font-family: 'Lato',sans-serif;
@@ -218,7 +218,7 @@ background: #252936;
   background: #2d1744;
 }
 .modal.ativo { opacity: 1;}
-.index { z-index: 5!important; }
+.index { z-index: 9999999!important; }
 .modal .icon-bolt{
   position: absolute;
   cursor: pointer;
@@ -357,6 +357,7 @@ background: #252936;
     margin-left: 50px;
     padding: 20px;
     position: relative;
+    overflow: scroll;
 }
 #modal-formulario .alerta{
   position: absolute;
@@ -460,14 +461,24 @@ all { font-size: 0.8em; }
   height: 100%;
   transition: .5s ease-in-out;
 }
-
+.material .bloco li img:not(.img_do_bloco) {
+  max-height: 135px;
+  overflow: hidden;
+  width: 100%;
+}
 .material .bloco li {
+  flex-basis: 30%;
   height: fit-content;
   width: fit-content;
   position: relative;
   color: white;
   list-style: none;
   margin-right: 20px;
+  height: 175px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-bottom: 30px;
 }
 .material .bloco .controles {
   display: flex;

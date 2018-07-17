@@ -46,7 +46,7 @@
                     foreach($full_imgdir as $full_imagem){
                         $ext_full = explode(".", $full_imagem);
                         if($ext_full[0] == $bloco){
-                        echo '<img src="blocos_img/'.$dat.'/'. 'full/'.$bloco.'.'.$ext_full[1].'" alt="">';
+                        echo '<img class="img_do_bloco" src="blocos_img/'.$dat.'/'. 'full/'.$bloco.'.'.$ext_full[1].'" alt="">';
                         }
                     } ?>
                 </a>
